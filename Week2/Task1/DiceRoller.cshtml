@@ -1,0 +1,70 @@
+﻿@page
+@model NewWebApp_1.Pages.DiceRollerModel
+@{
+    String mainHeader = "*** WELCOME TO ONLINE DICE ROLLER PLATFORM ***";
+    int numberRecieved = new Random().Next(1, 7); //GENERATES NUMBER BETWEEN 1 and 6
+    int winningNumber = new Random().Next(1, 7);
+    int differenceVal = Math.Abs(numberRecieved - winningNumber);
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dice Roller Platform</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        h1 {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-style: oblique;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron text-center" style="background-color:antiquewhite;">
+            <h1 class="display-5"><em><u>@mainHeader</u></em></h1>
+        </div>
+        <hr>
+
+        <div class="row" align="center">
+            <form class="form-group">
+                <button type="button" class="btn btn-primary btn-lg" onClick="window.location.reload();">
+                    CLICK HERE TO ROLL
+                    DICE
+                </button>
+            </form>
+        </div>
+
+
+        <br>
+        <div class="container">
+
+            @if (numberRecieved == winningNumber)
+            {
+
+                <div class="alert alert-success" role="alert" align="center">
+                    <h4><strong>CONGRATULATIONS ! YOU WON</strong></h4>
+                    <p>NUMBER YOU RECIEVED = <strong>@numberRecieved</strong></p>
+                    <p>REQUIRED WINNING NUMBER = <strong>@winningNumber</strong></p>
+
+                </div>
+            }
+
+            else
+            {
+                <div class="alert alert-danger" role="alert" align="center">
+                    <h4><strong>YOU LOST ! BETTER LUCK NEXT TIME.</strong></h4>
+                    <p>YOU WERE JUST <strong>@differenceVal</strong> OFF</p>
+                    <p>NUMBER YOU RECIEVED = <strong>@numberRecieved</strong></p>
+                    <p>REQUIRED WINNING NUMBER = <strong>@winningNumber</strong></p>
+                </div>
+
+            }
+        </div>
+    </div>
+</body>
+
+</html>
