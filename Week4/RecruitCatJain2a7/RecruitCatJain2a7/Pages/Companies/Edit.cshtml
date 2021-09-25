@@ -1,0 +1,90 @@
+﻿@page
+@model RecruitCatJain2a7.Pages.Companies.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit @Html.DisplayFor(model => model.Company.Name)</h1>
+
+<h4>Company</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Company.CompanyId" />
+            <div class="form-group">
+                <label asp-for="Company.Name" class="control-label"></label>
+                <input asp-for="Company.Name" class="form-control" />
+                <span asp-validation-for="Company.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company.PositionName" class="control-label"></label>
+                <input asp-for="Company.PositionName" class="form-control" />
+                <span asp-validation-for="Company.PositionName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company.MinimumSalary" class="control-label"></label>
+                <input asp-for="Company.MinimumSalary" class="form-control" />
+                <span asp-validation-for="Company.MinimumSalary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company.MaximumSalary" class="control-label"></label>
+                <input asp-for="Company.MaximumSalary" class="form-control" />
+                <span asp-validation-for="Company.MaximumSalary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company.StartDate" class="control-label"></label>
+                <input asp-for="Company.StartDate" class="form-control" />
+                <span asp-validation-for="Company.StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company.Location" class="control-label"></label>
+                <textarea asp-for="Company.Location" class="form-control"></textarea>
+                <span asp-validation-for="Company.Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company.MarketShare" class="control-label"></label>
+                <input asp-for="Company.MarketShare" class="form-control" />
+                <span asp-validation-for="Company.MarketShare" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Company.ProvidesSponsorship" /> @Html.DisplayNameFor(model => model.Company.ProvidesSponsorship)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company.IndustryAssociatedId" class="control-label"></label>
+                <select asp-for="Company.IndustryAssociatedId" class="form-control" asp-items="ViewBag.IndustryAssociatedId"></select>
+                <span asp-validation-for="Company.IndustryAssociatedId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company.Email" class="control-label"></label>
+                <input asp-for="Company.Email" class="form-control" />
+                <span asp-validation-for="Company.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company.CompanyUrl" class="control-label"></label>
+                <input asp-for="Company.CompanyUrl" class="form-control" />
+                <span asp-validation-for="Company.CompanyUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company.ContactNumber" class="control-label"></label>
+                <input asp-for="Company.ContactNumber" class="form-control" />
+                <span asp-validation-for="Company.ContactNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

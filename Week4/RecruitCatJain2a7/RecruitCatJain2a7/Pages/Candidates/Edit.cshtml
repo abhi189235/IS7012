@@ -1,0 +1,75 @@
+﻿@page
+@model RecruitCatJain2a7.Pages.Candidates.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit @Html.DisplayFor(model => model.Candidate.FirstName) @Html.DisplayFor(model => model.Candidate.LastName)</h1>
+
+<h4>Candidate</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Candidate.CandidateId" />
+            <div class="form-group">
+                <label asp-for="Candidate.FirstName" class="control-label"></label>
+                <input asp-for="Candidate.FirstName" class="form-control" />
+                <span asp-validation-for="Candidate.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Candidate.LastName" class="control-label"></label>
+                <input asp-for="Candidate.LastName" class="form-control" />
+                <span asp-validation-for="Candidate.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Candidate.TargetSalary" class="control-label"></label>
+                <input asp-for="Candidate.TargetSalary" class="form-control" />
+                <span asp-validation-for="Candidate.TargetSalary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Candidate.StartDate" class="control-label"></label>
+                <input asp-for="Candidate.StartDate" class="form-control" />
+                <span asp-validation-for="Candidate.StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Candidate.DomainSpecialization" class="control-label"></label>
+                <input asp-for="Candidate.DomainSpecialization" class="form-control" />
+                <span asp-validation-for="Candidate.DomainSpecialization" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Candidate.BirthDate" class="control-label"></label>
+                <input asp-for="Candidate.BirthDate" class="form-control" />
+                <span asp-validation-for="Candidate.BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Candidate.CompanyAssociatedId" class="control-label"></label>
+                <select asp-for="Candidate.CompanyAssociatedId" class="form-control" asp-items="ViewBag.CompanyAssociatedId"></select>
+                <span asp-validation-for="Candidate.CompanyAssociatedId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Candidate.JobTitleAssociatedId" class="control-label"></label>
+                <select asp-for="Candidate.JobTitleAssociatedId" class="form-control" asp-items="ViewBag.JobTitleAssociatedId"></select>
+                <span asp-validation-for="Candidate.JobTitleAssociatedId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Candidate.IndustryAssociatedId" class="control-label"></label>
+                <select asp-for="Candidate.IndustryAssociatedId" class="form-control" asp-items="ViewBag.IndustryAssociatedId"></select>
+                <span asp-validation-for="Candidate.IndustryAssociatedId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
